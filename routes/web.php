@@ -17,14 +17,6 @@ use App\Http\Controllers\ApiController;
 Route::get('/', function(){
     return 'testPrayas';
 });
-Route::get('/hello', function () {
-    return view('welcome');
-});
-
-Route::get('test', function () {
-    return view('test');
-});
-
  
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/api',[ApiController::class,'show']);

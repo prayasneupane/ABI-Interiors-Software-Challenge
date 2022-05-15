@@ -92,6 +92,8 @@
             <?php  } ?>
         </table>
         </div>
-
+        <div class="submit">
+            <button  class="tablinks" onclick="window.location='{{ url("/submitSummary") }}'">Submit Summary to API end point</button>
+        </div>
     </body>
 </html> 
