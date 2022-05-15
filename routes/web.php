@@ -21,3 +21,4 @@ Route::get('/', function(){
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/api',[ApiController::class,'show']);
 Route::get('/submitSummary',[ApiController::class,'submitSummary']);
+Route::get('/showProductChart',[ApiController::class,'showProductChart']);

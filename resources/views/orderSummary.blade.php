@@ -16,7 +16,11 @@
         </div>
 
         <div id="Items" class="tabcontent  tabcontentItems">
-            <p>A Summary of Items contained in this order information</p>
+            <div class = "tabheader">
+                <p>A Summary of Items contained in this order information
+                    <button type="button" style ="float:right" onclick="window.location='{{ url("/showProductChart") }}'">See chart</button>
+                </p>
+            </div>    
             <table style="width:100%" class="data-table">
             <tr style ="text-align:left">
                 <th>ProductId</th>
@@ -66,10 +70,10 @@
                 <th>OrderNumber</th>
             </tr>
             <?php 
-            $results = json_decode($encodedResult);
-            foreach ($results as $result)  {    ?>
+            $orderDetails = json_decode($encodedOrderDetails);
+            foreach ($orderDetails as $orderDetail)  {    ?>
                 <tr >
-                    <td><?php echo $result->OrderNumber ?> </td>
+                    <td><?php echo $orderDetail->OrderNumber ?> </td>
                 </tr>
             <?php  } ?>
         </table>
@@ -83,11 +87,11 @@
                 <th>TotalWeight</th>
             </tr>
             <?php 
-            $results = json_decode($encodedResult);
-            foreach ($results as $result)  {    ?>
+            $results = json_decode($encodedOrderDetails);
+            foreach ($orderDetails as $orderDetail)  {    ?>
                 <tr >
-                    <td><?php echo $result->OrderNumber ?> </td>
-                    <td><?php echo $result->TotalWeight ?> </td>
+                    <td><?php echo $orderDetail->OrderNumber ?> </td>
+                    <td><?php echo $orderDetail->TotalWeight ?> </td>
                 </tr>
             <?php  } ?>
         </table>

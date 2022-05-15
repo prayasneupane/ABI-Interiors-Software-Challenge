@@ -6,6 +6,7 @@ namespace app\Traits;
 
 trait DataAnalysisTrait {
 
+    //  Aggregate and Summarise the data from external API
     public function aggregateAndSummarise($jdata){
         $i =0;
         $emailArray = array();
@@ -28,21 +29,22 @@ trait DataAnalysisTrait {
         return $summaryResult;
     }
 
-    public function dataSummary($jdata){
+    // Get order numbers and total weight that order number
+    public function getOrderDetails($jdata){
         $i =0;
-        $result = array();
+        $resultOrderDetails = array();
         foreach($jdata as $sdata){
-            $result[$i] = array(
+
+            $resultOrderDetails[$i] = array(
                 'OrderNumber' => $sdata->OrderNumber,
-                'Email' => $sdata->Email,
-                'TotalItems' => $sdata->TotalItems,
                 'TotalWeight' => $sdata->TotalWeight
             );
             $i++;
         }
-        return $result;
+        return $resultOrderDetails;
     }
    
+    // Get Summary of contacts in the order information
     public function getContacts($jdata){
         $i =0;
         $resultContacts = array();
@@ -58,6 +60,7 @@ trait DataAnalysisTrait {
         return $resultContacts;
     }
 
+    // Get summary of items contained in the order information
     public function getItems($jdata){
         $i =0;
         $resultItems = array();
