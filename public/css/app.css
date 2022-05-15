@@ -2,13 +2,13 @@
 .tab {
     overflow: hidden;
     background-color: #f1f1f1;
-  }
-  
-  .tabheader {
+}
+
+.tabheader {
     width: 100%;
-  }
-  /* Style the buttons that are used to open the tab content */
-  .tab button {
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
     width: 25%;
     background-color: inherit;
     float: left;
@@ -17,29 +17,69 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4d4de6;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
     background-color: #ddd;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
-    background-color: #ccc;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
+    color: #8a1818;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ddd;
+    color: #4caf50;
+}
+
+/* Style the tab content */
+.tabcontent {
     display: none;
     padding: 6px 12px;
     border-top: none;
-  }
-  .tabcontentItems {
+}
+.tabcontentItems {
     display: block;
-  }
-  /* Style the submit button */
-  .submit {
-    padding: 6px 12px;
-  }
-  
+}
+/* Style the buttons used to go to another page */
+.submitButton {
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Create animated button */
+.submitButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.submitButton span:after {
+    content: "\0bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.submitButton:hover span {
+    padding-right: 25px;
+}
+
+.submitButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}

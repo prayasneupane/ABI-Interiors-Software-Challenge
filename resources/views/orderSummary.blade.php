@@ -18,7 +18,7 @@
         <div id="Items" class="tabcontent  tabcontentItems">
             <div class = "tabheader">
                 <p>A Summary of Items contained in this order information
-                    <button type="button" style ="float:right" onclick="window.location='{{ url("/showProductChart") }}'">See chart</button>
+                    <button type="button" class = "submitButton" style ="float:right" onclick="window.location='{{ url("/showProductChart") }}'"><span>See chart</span></button>
                 </p>
             </div>    
             <table style="width:100%" class="data-table">
@@ -97,7 +97,7 @@
         </table>
         </div>
         <div class="submit">
-            <button  class="tablinks" onclick="window.location='{{ url("/submitSummary") }}'">Submit Summary to API end point</button>
+            <button  class="submitButton" onclick="window.location='{{ url("/submitSummary") }}'">Submit Summary to API end point</button>
         </div>
     </body>
 </html> 
