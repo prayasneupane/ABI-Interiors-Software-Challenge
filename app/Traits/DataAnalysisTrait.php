@@ -9,7 +9,7 @@ trait DataAnalysisTrait {
     //  Aggregate and Summarise the data from external API
 
     public function aggregateAndSummarise( $jdata ) {
-        $i = 0;
+
         $emailArray = array();
         $orderArray = array();
         $itemArray = array();
@@ -20,7 +20,6 @@ trait DataAnalysisTrait {
             array_push( $orderArray, $sdata->OrderNumber );
             array_push( $itemArray, $sdata->TotalItems );
             array_push( $weightArray, $sdata->TotalWeight );
-            $i++;
         }
         $uniqueEmail = array_unique( $emailArray );
         $uniqueOrder = array_unique( $orderArray );
@@ -50,15 +49,20 @@ trait DataAnalysisTrait {
 
     public function getContacts( $jdata ) {
         $i = 0;
+        $temp = array();
+        $temp[ 0 ] = '';
         $resultContacts = array();
+        // get contacts based on unique email addresses
         foreach ( $jdata as $sdata ) {
-            $resultContacts[ $i ] = array(
-                'FirstName' =>  $sdata->FirstName,
-                'LastName' =>  $sdata->LastName,
-                'Email' => $sdata->Email
-            );
-            $i++;
-
+            if ( $sdata->Email != $temp[ $i ] ) {
+                $resultContacts[ $i ] = array(
+                    'FirstName' =>  $sdata->FirstName,
+                    'LastName' =>  $sdata->LastName,
+                    'Email' => $sdata->Email
+                );
+                $i++;
+                $temp[ $i ] = $sdata->Email;
+            }
         }
         return $resultContacts;
     }
